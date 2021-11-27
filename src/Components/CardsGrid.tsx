@@ -13,7 +13,7 @@ export default function CardsGrid({ imagenes }: ICardsGridProps): ReactElement {
     const imageLoaded = () => {
         counter.current += 1;
         console.log(counter.current);
-        if (counter.current >= Number(process.env.REACT_APP_LIMIT_IMAGES)) {
+        if (counter.current >= Number(process.env.REACT_APP_LIMIT_IMAGES)-1) {
             setLoading(false);
             counter.current = 0
         }

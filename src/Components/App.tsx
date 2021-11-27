@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
     const [imagenes, setImagenes] = useState<Array<IGifData>>([]);
     const [loading, setLoading] = useState<boolean>(true)
+    const [error, setError] = useState<boolean>(false)
 
 
     useEffect(() => {
@@ -18,19 +19,24 @@ function App() {
             fetch("https://api.giphy.com/v1/gifs/trending?limit=16&api_key=" +
                 process.env.REACT_APP_GIPHY_KEY + "&offset=" + offset)
                 .then(res => res.json())
-                .then(data => { setLoading(false); setImagenes(data.data) })
-                .catch(err => { console.log(err); setLoading(false) })
+                .then(data => { setLoading(false); setImagenes(data.data); setError(false) })
+                .catch(err => { console.log(err); setError(true); setLoading(false) })
         }
     }, [loading])
 
     return (
         <>
+
             <NavBar setLoading={setLoading} />
-            {loading ?
-                <div className="d-flex justify-content-center">
-                    <Spinner animation="border" className=" mt-2" variant="success" />
-                </div>
-                : <CardsGrid imagenes={imagenes} />}
+            {
+                error ? 
+                <div className="alert alert-danger m-5 text-center">Error al cargar las imágenes. Es probable que haya excedido el número de peticiones diarias permitidas en la cuenta gratuita de  <a href="https://developers.giphy.com/docs/api#quick-start-guide">GIPHY API</a></div>
+                    : loading ?
+                        <div className="d-flex justify-content-center">
+                            <Spinner animation="border" className=" mt-2" variant="success" />
+                        </div>
+                        : <CardsGrid imagenes={imagenes} />
+            }
         </>
     )
 }
