@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-typescript-giphy/static/css/main.1c024323.chunk.css",
+    "main.js": "/react-typescript-giphy/static/js/main.d67d3593.chunk.js",
+    "main.js.map": "/react-typescript-giphy/static/js/main.d67d3593.chunk.js.map",
+    "runtime-main.js": "/react-typescript-giphy/static/js/runtime-main.014b6049.js",
+    "runtime-main.js.map": "/react-typescript-giphy/static/js/runtime-main.014b6049.js.map",
+    "static/js/2.4b144b7e.chunk.js": "/react-typescript-giphy/static/js/2.4b144b7e.chunk.js",
+    "static/js/2.4b144b7e.chunk.js.map": "/react-typescript-giphy/static/js/2.4b144b7e.chunk.js.map",
+    "index.html": "/react-typescript-giphy/index.html",
+    "static/css/main.1c024323.chunk.css.map": "/react-typescript-giphy/static/css/main.1c024323.chunk.css.map",
+    "static/js/2.4b144b7e.chunk.js.LICENSE.txt": "/react-typescript-giphy/static/js/2.4b144b7e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.014b6049.js",
+    "static/js/2.4b144b7e.chunk.js",
+    "static/css/main.1c024323.chunk.css",
+    "static/js/main.d67d3593.chunk.js"
+  ]
+}
