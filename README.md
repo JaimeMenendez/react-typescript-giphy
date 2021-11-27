@@ -1,6 +1,8 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can see the project running at https://jaimemenendez.github.io/react-typescript-giphy/.
+
+To run the project locally, you will need to declare `REACT_APP_GIPHY_KEY=Your Giphy Key` and `REACT_APP_LIMIT_IMAGES=16` in a .env file in the root of your project.
 
 ## Available Scripts
 
