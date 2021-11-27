@@ -4,29 +4,29 @@ import IGifData from "../Interfaces/IGifData"
 import { Spinner } from "react-bootstrap";
 
 interface ICardsGridProps {
-    imagenes: Array<IGifData>
+    images: Array<IGifData>,
+    loadingImages: boolean,
+    setLoadingImages: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-export default function CardsGrid({ imagenes }: ICardsGridProps): ReactElement {
-    const [loading, setLoading] = useState(true);
+function CardsGrid({ images,loadingImages,setLoadingImages }: ICardsGridProps): ReactElement {
+    
     const counter = useRef(0);
     const imageLoaded = () => {
         counter.current += 1;
-        console.log(counter.current);
         if (counter.current >= Number(process.env.REACT_APP_LIMIT_IMAGES)-1) {
-            setLoading(false);
+            setLoadingImages(false);
             counter.current = 0
         }
     }
-
     return (
         <>
-            <div className={"d-flex justify-content-center" + (loading ? "":" d-none")}>
+            <div className={"d-flex justify-content-center" + (loadingImages ? "":" d-none")}>
                 <Spinner animation="border" className=" mt-2" variant="success" />
                 </div>
 
-            <div className={`row row-cols-1 row-cols-sm-2 m-4 ` + (loading ? " d-none" : "")}>
-                {(imagenes.map(imagen => {
+            <div className={`row row-cols-1 row-cols-sm-2 m-4 ` + (loadingImages ? " d-none" : "")}>
+                {(images.map(imagen => {
                     return (
                         <Card
                             key={imagen.id}
@@ -40,3 +40,5 @@ export default function CardsGrid({ imagenes }: ICardsGridProps): ReactElement {
         </>
     )
 }
+
+export default CardsGrid
