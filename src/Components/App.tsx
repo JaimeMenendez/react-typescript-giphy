@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import '../assets/css/app.css';
 import NavBar from "./NavBar";
 import CardsGrid from "./CardsGrid";
 import IGifData from "../Interfaces/IGifData"
 import { Spinner } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     const [imagenes, setImagenes] = useState<Array<IGifData>>([]);
     const [loading, setLoading] = useState<boolean>(true)
-   
+
 
     useEffect(() => {
         let numberOfImages = Number(process.env.REACT_APP_LIMIT_IMAGES);
-        let offset = getRandomInt(0, 5000/numberOfImages) * numberOfImages
+        let offset = getRandomInt(0, 5000 / numberOfImages) * numberOfImages
 
         if (loading) {
             fetch("https://api.giphy.com/v1/gifs/trending?limit=16&api_key=" +
@@ -24,11 +24,14 @@ function App() {
     }, [loading])
 
     return (
-        <div className="container card-group d-flex justify-content-center">
+        <>
             <NavBar setLoading={setLoading} />
-            {loading ? <Spinner animation="border" className="mt-2" variant="success" />
+            {loading ?
+                <div className="d-flex justify-content-center">
+                    <Spinner animation="border" className=" mt-2" variant="success" />
+                </div>
                 : <CardsGrid imagenes={imagenes} />}
-        </div>
+        </>
     )
 }
 

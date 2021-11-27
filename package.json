@@ -2,7 +2,7 @@
   "name": "clase45",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://yourusername.github.io/repository-name",
+  "homepage":"https://jaimemenendez.github.io/react-typescript-giphy/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
@@ -20,6 +20,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

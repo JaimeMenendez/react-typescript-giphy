@@ -21,11 +21,11 @@ export default function CardsGrid({ imagenes }: ICardsGridProps): ReactElement {
 
     return (
         <>
-            <Spinner animation="border" className="mt-2" variant="success"
-                style={{ display: loading ? "block" : "none" }} />
+            <div className={"d-flex justify-content-center" + (loading ? "":" d-none")}>
+                <Spinner animation="border" className=" mt-2" variant="success" />
+                </div>
 
-            <div className="container card-group justify-content-center"
-                style={{ display: loading ? "none" : "flex" }}>
+            <div className={`row row-cols-1 row-cols-sm-2 m-4 ` + (loading ? " d-none" : "")}>
                 {(imagenes.map(imagen => {
                     return (
                         <Card
